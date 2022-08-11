@@ -1,28 +1,21 @@
 const messageContainer = document.getElementById('container');
 let currentUser;
 
-function setLocalStorage(data) {
-  localStorage.setItem('data', JSON.stringify(data));
-}
-
-function getLocalStorage() {
-  const data = JSON.parse(localStorage.getItem('data'));
-  return data;
-}
-
 fetch('./data.json')
   .then((res) => res.json())
-  .then((data) => setLocalStorage(data));
+  .then((data) => getPostElement(data));
 
-function getPostElement() {
-  const data = getLocalStorage();
-  currentUser = data.currentUser.username;
+function getPostElement(data) {
+  console.log(data);
+
   data.comments.forEach((comment, id) => {
     const postContainer = document.createElement('div');
     postContainer.classList.add('post-container');
     getElement(postContainer, comment);
 
     messageContainer.append(postContainer);
+
+    currentUser = data.currentUser.username;
 
     if (comment.replies.length > 0) {
       const replyContainer = document.createElement('section');
@@ -101,5 +94,3 @@ function getElement(element, post) {
   
   `);
 }
-
-getPostElement();
