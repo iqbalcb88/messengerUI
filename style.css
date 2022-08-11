@@ -59,7 +59,8 @@ body {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 1rem;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
 }
 .post {
   position: relative;
@@ -111,7 +112,8 @@ body {
   color: #b3b3b3;
   padding: 0.5rem 0;
 }
-.reply {
+.reply,
+.edit-delete {
   position: absolute;
   top: 0;
   right: 0;
@@ -119,11 +121,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
-.reply span {
+.reply span,
+.edit-delete span {
   font-weight: bolder;
   font-size: 1rem;
   margin-left: 0.3rem;
+}
+
+.edit-delete .edit {
+  margin-left: 1.5rem;
+}
+
+.edit-delete .delete {
+  color: orangered;
 }
 
 .comment-div {
@@ -134,6 +146,7 @@ body {
   background-color: #fff;
   padding: 1rem;
   border-radius: 0.5rem;
+  margin-top: -1.5rem;
 }
 
 .comment {
